@@ -1,13 +1,18 @@
 - name: Install ZSH
-  apt: name=zsh
+  apt:
+    name: zsh
   tags: &tags_for_zsh_tasks [ 'install', 'productivity', 'dotfiles', 'zsh' ]
   when: ansible_facts['distribution'] == "Ubuntu"
+
 - name: Install ZSH
-  pacman: name=zsh
+  pacman:
+    name: zsh
   tags: &tags_for_zsh_tasks [ 'install', 'productivity', 'dotfiles', 'zsh' ]
   when: ansible_facts['os_family'] == "Archlinux"
+
 - name: Install ZSH
-  community.general.homebrew: name=zsh
+  community.general.homebrew:
+    name=zsh
   tags: &tags_for_zsh_tasks [ 'install', 'productivity', 'dotfiles', 'zsh' ]
   when: ansible_facts['os_family'] == "Darwin"
     
