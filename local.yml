@@ -26,11 +26,11 @@
         #     - install
         #     - core
         #   when: ansible_facts['os_family'] == "Darwin"
-  tasks:
-    - include: tasks/dotfiles.yml
-    - include: tasks/neovim.yml
-    - include: tasks/productivity-tools.yml
-    - include: tasks/setup-core.yml
-    - include: tasks/setup-git.yml
-    - include: tasks/ssh.yml
-    - include: tasks/zsh.yml
+  import_tasks:
+    - tasks/dotfiles.yml
+    - tasks/neovim.yml
+    - tasks/productivity-tools.yml
+    - tasks/setup-core.yml
+    - tasks/setup-git.yml
+    - tasks/ssh.yml
+    - tasks/zsh.yml
