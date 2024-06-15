@@ -12,7 +12,7 @@
         - install
         - core
       when: ansible_facts['distribution'] == "Ubuntu"
-    - name: Update Cache Mac
+    - name: test
     - name: Update Cache Arch
       pacman:
         update_cache: true
