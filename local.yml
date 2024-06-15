@@ -11,7 +11,7 @@
       tags:
         - install
         - core
-          # when: ansible_facts['distribution'] == "Ubuntu"
+      when: ansible_facts['distribution'] == "Ubuntu"
         # - name: Update Cache Arch
         #   pacman:
         #     update_cache: true
