@@ -26,10 +26,8 @@
   ansible.builtin.git:
     repo: 'https://github.com/MathieuTuli/ansible.git'
     dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
-    clone: yes
     recursive: yes
     update: yes
-    accept_hostkey: yes
     version: master
   tags:
     - install
