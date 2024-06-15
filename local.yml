@@ -27,10 +27,10 @@
         - core
       when: ansible_facts['os_family'] == "Darwin"
   tasks:
-    - include: tasks/dotfiles.yaml
-    - include: tasks/neovim.yaml
-    - include: tasks/productivity-tools.yaml
-    - include: tasks/setup-core.yaml
-    - include: tasks/setup-git.yaml
-    - include: tasks/ssh.yaml
-    - include: tasks/zsh.yaml
+    - include: tasks/dotfiles.yml
+    - include: tasks/neovim.yml
+    - include: tasks/productivity-tools.yml
+    - include: tasks/setup-core.yml
+    - include: tasks/setup-git.yml
+    - include: tasks/ssh.yml
+    - include: tasks/zsh.yml
