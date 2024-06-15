@@ -6,7 +6,7 @@
     - dotfiles
     - stow
 - name: Installing stow
-  pacman: stow
+  pacman: name=stow
   when: ansible_facts['os_family'] == "ArchLinux"
   tags:
     - install
