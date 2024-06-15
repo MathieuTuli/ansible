@@ -2,6 +2,23 @@
   become: true
   apt:
     name: [ "tmux", "wireshark", "fzf", "kdenlive", "gimp", "xclip", "screenkey", "tldr", "ripgrep", "shutter" ]
+  when: ansible_facts['distribution'] == "Ubuntu"
+  tags:
+    - install
+    - productivity
+- name: Install packages
+  become: true
+  pacman:
+    name: [ "tmux", "wireshark", "fzf", "kdenlive", "gimp", "xclip", "screenkey", "tldr", "ripgrep", "shutter" ]
+  when: ansible_facts['os_family'] == "Archlinux"
+  tags:
+    - install
+    - productivity
+- name: Install packages
+  become: true
+  community.general.homebrew:
+    name: [ "tmux", "fzf", "tldr"]
+  when: ansible_facts['os_family'] == "Darwin"
   tags:
     - install
     - productivity

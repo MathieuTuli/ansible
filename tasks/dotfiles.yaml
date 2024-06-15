@@ -1,10 +1,27 @@
 - name: Installing stow
   apt: name=stow
-  pacman: stow
+  when: ansible_facts['distribution'] == "Ubuntu"
   tags:
     - install
     - dotfiles
     - stow
+- name: Installing stow
+  pacman: stow
+  when: ansible_facts['os_family'] == "ArchLinux"
+  tags:
+    - install
+    - dotfiles
+    - stow
+- name: Installing stow
+  community.general.homebrew:
+    name: foo
+    state: present
+  when: ansible_facts['os_family'] == "Darwin"
+  tags:
+    - install
+    - dotfiles
+    - stow
+
 - name: Cloning .dotfiles
   ansible.builtin.git:
     repo: 'git@github.com:MathieuTuli/.dotfiles.git'

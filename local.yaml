@@ -1,0 +1,36 @@
+- hosts: localhost 
+  # vars:
+  #   source_key: "./.ssh/id_rsa"
+  #   dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+  #   personal: "{{ lookup('env', 'HOME') }}/personal"
+  become: true
+  pre_tasks:
+    - name: Update Cache Ubuntu
+      apt: 
+        update_cache: true
+      tags:
+        - install
+        - core
+      when: ansible_facts['distribution'] == "Ubuntu"
+    - name: Update Cache Arch
+      pacman:
+        update_cache: true
+        upgrade: yes
+      tags:
+        - install
+        - core
+      when: ansible_facts['os_family'] == "Archlinux"
+    - name: Update Cache Mac
+      update_homebrew: true
+      tags:
+        - install
+        - core
+      when: ansible_facts['os_family'] == "Darwin"
+  tasks:
+    - include: tasks/dotfiles.yaml
+    - include: tasks/neovim.yaml
+    - include: tasks/productivity-tools.yaml
+    - include: tasks/setup-core.yaml
+    - include: tasks/setup-git.yaml
+    - include: tasks/ssh.yaml
+    - include: tasks/zsh.yaml
