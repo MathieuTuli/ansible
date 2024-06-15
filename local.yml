@@ -5,27 +5,27 @@
   #   personal: "{{ lookup('env', 'HOME') }}/personal"
   become: true
   pre_tasks:
-    - name: Update Cache Ubuntu
-      apt: 
-        update_cache: true
-      tags:
-        - install
-        - core
-          # when: ansible_facts['distribution'] == "Ubuntu"
-        # - name: Update Cache Arch
-        #   pacman:
-        #     update_cache: true
-        #     upgrade: yes
-        #   tags:
-        #     - install
-        #     - core
-        #   when: ansible_facts['os_family'] == "Archlinux"
-        # - name: Update Cache Mac
-        #   update_homebrew: true
-        #   tags:
-        #     - install
-        #     - core
-        #   when: ansible_facts['os_family'] == "Darwin"
+  - name: Update Cache Ubuntu
+    apt: 
+      update_cache: true
+    tags:
+      - install
+      - core
+        # when: ansible_facts['distribution'] == "Ubuntu"
+      # - name: Update Cache Arch
+      #   pacman:
+      #     update_cache: true
+      #     upgrade: yes
+      #   tags:
+      #     - install
+      #     - core
+      #   when: ansible_facts['os_family'] == "Archlinux"
+      # - name: Update Cache Mac
+      #   update_homebrew: true
+      #   tags:
+      #     - install
+      #     - core
+      #   when: ansible_facts['os_family'] == "Darwin"
   tasks:
     - include: tasks/dotfiles.yml
     - include: tasks/neovim.yml
