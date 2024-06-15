@@ -20,12 +20,12 @@
         - install
         - core
       when: ansible_facts['os_family'] == "Archlinux"
-        # - name: Update Cache Mac
-        #   update_homebrew: true
-        #   tags:
-        #     - install
-        #     - core
-        #   when: ansible_facts['os_family'] == "Darwin"
+    - name: Update Cache Mac
+      update_homebrew: true
+      tags:
+        - install
+        - core
+      when: ansible_facts['os_family'] == "Darwin"
   tasks:
     - import_tasks: tasks/dotfiles.yml
     - import_tasks: tasks/neovim.yml
