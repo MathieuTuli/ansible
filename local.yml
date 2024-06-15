@@ -12,15 +12,13 @@
         - install
         - core
       when: ansible_facts['distribution'] == "Ubuntu"
-    - name: test
     - name: Update Cache Arch
-      pacman:
-        update_cache: true
-        upgrade: yes
-      tags:
-        - install
-        - core
-      when: ansible_facts['os_family'] == "Archlinux"
+        # - name: Update Cache Mac
+        #   update_homebrew: true
+        #   tags:
+        #     - install
+        #     - core
+        #   when: ansible_facts['os_family'] == "Darwin"
         #   tasks:
         #     - include: tasks/dotfiles.yml
         #     - include: tasks/neovim.yml
