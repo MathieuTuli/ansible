@@ -7,13 +7,13 @@
 - name: Install ZSH
   pacman:
     name: zsh
-  tags: &tags_for_zsh_tasks [ 'install', 'productivity', 'dotfiles', 'zsh' ]
+  tags: *tags_for_zsh_tasks
   when: ansible_facts['os_family'] == "Archlinux"
 
 - name: Install ZSH
   community.general.homebrew:
     name=zsh
-  tags: &tags_for_zsh_tasks [ 'install', 'productivity', 'dotfiles', 'zsh' ]
+  tags: *tags_for_zsh_tasks
   when: ansible_facts['os_family'] == "Darwin"
     
 - name: Change shell to zsh
