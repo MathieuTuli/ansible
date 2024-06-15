@@ -24,7 +24,7 @@
       tags:
         - install
         - core
-      when: ansible_facts['os_family'] == "Darwin"
+      when: ansible_facts['os_family'] == "ArchLinux"
   tasks:
     - import_tasks: tasks/dotfiles.yml
     - import_tasks: tasks/neovim.yml
